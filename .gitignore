@@ -1,0 +1,19 @@
+# Ignorar archivos de entorno
+venv/
+.env
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
++.pyo
+*.pyd
+
+# Archivos temporales de editor 
+*.swp
+*.swo
+.DS_Store
+
+# Archivos de configuracion locales
+*.local
+.idea/  
+.vscode/
