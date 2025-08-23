@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../db')))
+
 from db import get_connection
 
 def insert_orden_trabajo(descripcion, linea, estado="pendiente"):
