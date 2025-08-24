@@ -1,24 +1,28 @@
-# Proyecto OT - Gestión de Órdenes de Trabajo
+# Sistema de Gestión de Órdenes de Trabajo (OT)
 
-Este proyecto es un sistema básico para registrar y listar órdenes de trabajo (OT) de mantenimiento, usando **Python**, **PostgreSQL** y buenas prácticas de desarrollo.
+Este proyecto es una aplicación web desarrollada en **Python** utilizando **Streamlit** para la gestión de órdenes de trabajo en línea de producción. Permite registrar, administrar y visualizar las OT, con integración a una base de datos PostgreSQL.
 
 ---
 
 ## Estructura del proyecto
 
 ```
-mantenimiento_ot/
-├── .gitignore
-├── .env
-├── README.md
-├── db/
-│   ├── db.py
-│   └── create_tables.py
-├── scripts/
-│   ├── insert_ot.py
-│   └── list_ot.py
-├── tests/
-└── docs/
+OT/
+├── assets/ # Imágenes, logos, etc.
+│ └── keen-logo.png
+├── db/ # Conexión y funciones de base de datos
+│ ├── init.py
+│ ├── db.py
+│ └── create_tables.py
+├── pages/ # Páginas multipágina de la app
+│ ├── 0_Dashboard.py
+│ ├── 1_Carga_OT.py
+│ ├── 2_Administrar_OT.py
+│ └── 3_Reportes.py
+├── scripts/OLD/ # Scripts antiguos, no utilizados
+├── main.py # Entrada principal de la app (homepage)
+├── requirements.txt
+└── README.md
 ```
 
 - `db/` → conexión a la base de datos y creación de tablas.  
@@ -74,27 +78,29 @@ DB_PORT=5432
 
 ---
 
-## Uso
+## 🚀 Ejecución de la app
 
-1. Crear la tabla de órdenes de trabajo:
-
-```bash
-python db/create_tables.py
-```
-
-2. Insertar órdenes de trabajo de ejemplo:
+1. Activar el entorno virtual:
 
 ```bash
-python scripts/insert_ot.py
-```
+# Windows
+venv\Scripts\activate
 
-3. Listar órdenes de trabajo:
+# macOS / Linux
+source venv/bin/activate
+Instalar dependencias:
 
-```bash
-python scripts/list_ot.py
-```
+bash
+Copiar
+Editar
+pip install -r requirements.txt
+Ejecutar la aplicación multipágina desde la raíz:
 
----
+bash
+Copiar
+Editar
+streamlit run main.py
+Esto abrirá la página principal (main.py) como homepage.
 
-
+Streamlit detectará automáticamente todas las páginas dentro de pages/ y generará el menú lateral con ellas.
 
